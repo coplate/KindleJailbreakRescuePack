@@ -1,0 +1,80 @@
+#!/bin/sh
+#
+# $Id: run.ffs 11493 2015-02-11 19:06:31Z NiLuJe $
+#
+##
+OTA=com.lab126.blanket.ota
+
+progress()
+{
+	lipc-send-event $OTA otaSplashProgress -i $1
+	local x=48
+	local y=11
+	eips 0 $y "                                                ";
+	eips $((($x - $(expr length "$2")) / 2)) $y "$2"
+	sleep 2
+}
+
+fail()
+{
+	lipc-send-event $OTA otaSplashError -s "${1}"
+	sleep 10
+	exit 1;
+}
+
+progress 10 "Mounting diags partition"
+mkdir -p /mnt/mmc || fail "Unable to create diags mountpoint"
+/bin/mount /dev/mmcblk0p2 /mnt/mmc/ || fail "Unable to mount diags partition"
+
+progress 20 "Setting diags root password to mario"
+echo 'root:$1$szXhciXv$MWycANLcKbEravzSx7sET0:0:0:99999:7:::' > /tmp/shadow.diags
+grep -v '^root:' /mnt/mmc/etc/shadow >> /tmp/shadow.diags || fail "Unable to change diags root password (1)"
+cp -f /tmp/shadow.diags /mnt/mmc/etc/shadow || fail "Unable to change diags root password (2)"
+rm -f /tmp/shadow.diags || fail "Unable to change diags root password (3)"
+
+
+progress 30 "Creating directories"
+mkdir -p /mnt/mmc/usr/local/bin
+mkdir -p /mnt/mmc/usr/local/sbin
+mkdir -p /mnt/mmc/usr/local/etc/dropbear
+mkdir -p /mnt/mmc/etc/dropbear
+
+progress 40 "Copying SSH keys"
+cp -f dropbear_*_host_key /mnt/mmc/usr/local/etc/dropbear/ || fail "Unable to copy SSH keys (1)"
+cp -f dropbear_*_host_key /mnt/mmc/etc/dropbear/ || fail "Unable to copy SSH keys (2)"
+
+progress 50 "Copying binary files"
+cp -f dropbearmulti /mnt/mmc/usr/local/bin/ || fail "Unable to copy dropbearmulti"
+chmod 755 /mnt/mmc/usr/local/bin/dropbearmulti || fail "Unable to chmod 755 dropbearmulti"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/bin/dbclient || fail "Unable to link dropbearmulti to dbclient"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/bin/dropbearconvert || fail "Unable to link dropbearmulti to dropbearconvert"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/bin/dropbearkey || fail "Unable to link dropbearmulti to dropbearkey (1)"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/bin/scp || fail "Unable to link dropbearmulti to scp"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/sbin/dropbear || fail "Unable to link dropbearmulti to dropbear"
+ln -sf /usr/local/bin/dropbearmulti /mnt/mmc/usr/local/sbin/dropbearkey || fail "Unable to link dropbearmulti to dropbearkey (2)"
+
+
+progress 60 "Patching system_diags"
+sed -i -e 's/rm -rf \/usr\/local/rm -rf \/DIS\/ABLED/' /mnt/mmc/opt/factory/system_diags || fail "Unable to patch system_diags"
+
+progress 70 "Unmounting diags partition"
+/bin/umount /mnt/mmc || fail "Unable to unmount diags partition"
+
+progress 80 "Copying debrick scripts to main partition"
+cp -f debrick /etc/upstart/ || fail "Unable to copy debrick script"
+chmod 755 /etc/upstart/debrick || fail "Unable to chmod 755 debrick"
+cp -f debrick.conf /etc/upstart/ || fail "Unable to copy debrick.conf"
+chmod 644 /etc/upstart/debrick.conf || fail "Unable to chmod 644 debrick.conf"
+
+progress 90 "Backing up debrick scripts"
+RP_PERSISTENT_STORAGE="/var/local/rp"
+RP_BACKUP_STORAGE="/mnt/us/rp"
+mkdir -p "${RP_PERSISTENT_STORAGE}" || fail "Unable to create RP persistent storage folder"
+cp -af "/etc/upstart/debrick.conf" "${RP_PERSISTENT_STORAGE}/debrick.conf" || fail "Unable to store debrick.conf"
+cp -af "/etc/upstart/debrick" "${RP_PERSISTENT_STORAGE}/debrick" || fail "Unable to store debrick script"
+mkdir -p "${RP_BACKUP_STORAGE}" || fail "Unable to create RP backup storage folder"
+cp -f "/etc/upstart/debrick.conf" "${RP_BACKUP_STORAGE}/debrick.conf" || fail "Unable to backup debrick.conf"
+cp -f "/etc/upstart/debrick" "${RP_BACKUP_STORAGE}/debrick" || fail "Unable to backup debrick script"
+
+progress 100 "Installation complete."
+

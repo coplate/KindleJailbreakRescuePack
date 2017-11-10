@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# $Id: debrick 11153 2014-11-24 15:52:49Z NiLuJe $
+#
+##
+
+[ -f "/etc/upstart/functions" ] && source /etc/upstart/functions
+
+# Give users at least a minimal amount of time to clean up
+# this shouldn't be too low, because it would be impossible
+# to remove the ENABLE_DIAGS file otherwise.
+# Then again, it shouldn't be too high either, because a bricked device
+# could reboot before we have the chance to perform our stuff..
+# classic dilemma :-)
+sleep 3
+if [ -f /mnt/us/ENABLE_DIAGS ] ; then
+	f_log I debrick main "" "tripped"
+	rm -f /mnt/us/ENABLE_DIAGS
+	/usr/sbin/idme -d --bootmode diags
+	/sbin/reboot
+fi
+
+return 0

@@ -1,0 +1,409 @@
+2016-07-30 15:34  NiLuJe
+
+	* [r13408] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2016-07-08 21:13  NiLuJe
+
+	* [r13339] README:
+	  
+	  Kindle Hacks:
+	  * Some more stuff missing for KOA/KT3 support...
+
+2016-07-08 16:35  NiLuJe
+
+	* [r13336] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2016-06-21 02:49  NiLuJe
+
+	* [r13309] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Update binaries (TC update)
+
+2016-06-20 13:40  NiLuJe
+
+	* [r13306] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2016-05-18 16:37  NiLuJe
+
+	* [r13265] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (update TC)
+
+2016-04-17 23:32  NiLuJe
+
+	* [r13188] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (Linaro 5.3 2016.04)
+
+2016-04-11 15:04  NiLuJe
+
+	* [r13156] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2016-04-03 17:04  NiLuJe
+
+	* [r13099] src/dropbearmulti:
+	  
+	  KIndle Hacks:
+	  * Refresh binaries
+
+2016-02-14 01:23  NiLuJe
+
+	* [r12903] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (Linaro 5.2 2015.11-2)
+
+2016-02-07 18:12  NiLuJe
+
+	* [r12851] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2016-02-06 15:36  NiLuJe
+
+	* [r12832] README:
+	  
+	  Kindle Touch Hacks:
+	  * Slightly touch up the RP/CRP docs to be more explicit that they're
+	  sane on newer HW.
+
+2016-01-18 03:13  NiLuJe
+
+	* [r12798] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (downgrade TC to 2015.11, for some strange reason I
+	  don't have time to investigate, my 2016.01 builds are utterly
+	  broken...)
+
+2016-01-16 20:41  NiLuJe
+
+	* [r12795] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (update TC)
+
+2016-01-16 01:37  NiLuJe
+
+	* [r12790] build/build-updates.sh:
+	  
+	  Kindle Touch Hacks:
+	  * Package the Rescue Pack & CRP for newer Wario devices too, it
+	  appears to be safe & functional :).
+
+2015-12-04 18:48  NiLuJe
+
+	* [r12672] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-11-28 00:59  NiLuJe
+
+	* [r12659] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-11-20 19:02  NiLuJe
+
+	* [r12644] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-11-14 21:14  NiLuJe
+
+	* [r12632] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaires (TC update).
+	  The Kobo set is incomplete because sourceforge went down during the
+	  build, and is currently still down...
+
+2015-11-13 17:06  NiLuJe
+
+	* [r12624] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-10-31 18:46  NiLuJe
+
+	* [r12573] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (fix dropbear interactive logins)
+
+2015-10-22 16:23  NiLuJe
+
+	* [r12546] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-10-16 18:15  NiLuJe
+
+	* [r12526] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (TC update)
+
+2015-10-03 15:47  NiLuJe
+
+	* [r12487] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-09-20 00:16  NiLuJe
+
+	* [r12428] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaris (TC Update)
+
+2015-09-11 01:36  NiLuJe
+
+	* [r12385] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-08-28 17:34  NiLuJe
+
+	* [r12304] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * refresh binaries
+
+2015-08-16 10:33  NiLuJe
+
+	* [r12203] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (TC update)
+
+2015-08-14 09:39  NiLuJe
+
+	* [r12137] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-07-25 18:36  NiLuJe
+
+	* [r12086] src/dropbearmulti:
+	  
+	  And a final round of VSN keyword pruning...
+
+2015-07-25 17:45  NiLuJe
+
+	* [r12080] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-06-05 22:17  NiLuJe
+
+	* [r12019] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  • Refresh binaries
+
+2015-05-31 01:14  NiLuJe
+
+	* [r12014] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-05-07 22:32  NiLuJe
+
+	* [r11963] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Update binaries (updated TC)
+
+2015-05-01 02:02  NiLuJe
+
+	* [r11924] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Update binaries
+
+2015-04-28 19:31  NiLuJe
+
+	* [r11910] build/build-updates.sh:
+	  
+	  The great shebang enfixening!
+
+2015-03-07 01:28  NiLuJe
+
+	* [r11720] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2015-02-26 02:23  NiLuJe
+
+	* [r11684] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh bianries...
+	  (LTO, AKA, The Breakening!)
+
+2015-02-25 15:00  NiLuJe
+
+	* [r11663] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  • Resync binaries
+
+2015-02-17 23:35  NiLuJe
+
+	* [r11537] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries (Linaro 4.9 2015.02)
+
+2015-02-13 17:17  NiLuJe
+
+	* [r11508] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Update dropbear binaries (kill trace printf debugging in verbose
+	  mode)
+
+2015-02-12 18:23  NiLuJe
+
+	* [r11499] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Update binaries
+
+2015-02-11 19:06  NiLuJe
+
+	* [r11493] src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePack:
+	  * Make sure the target mountpoint exists, in case something wonky
+	  happened to the FS
+
+2015-01-31 19:58  NiLuJe
+
+	* [r11464] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaries
+
+2014-12-18 13:05  NiLuJe
+
+	* [r11252] src/dropbearmulti:
+	  
+	  Kindle Hacks:
+	  * Refresh binaires (updated TC)
+
+2014-12-01 13:14  NiLuJe
+
+	* [r11212] src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Rescue Pack:
+	  * Make sure every directory used exists, on the off-chance it's not
+	  there in some diags builds...
+
+2014-12-01 12:31  NiLuJe
+
+	* [r11209] README:
+	  
+	  Kindle Touch Hacks:
+	  * Update the RP & CRP ReadMes
+
+2014-12-01 12:23  NiLuJe
+
+	* [r11208] src/dropbear_dss_host_key, src/dropbear_ecdsa_host_key[ADD],
+	  src/dropbear_rsa_host_key, src/dropbearmulti, src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePack:
+	  * Use our own dropbear build
+	  * Use the same hostkeys as USBNetwork (and actually install them in
+	  the right place)
+
+2014-11-30 16:16  NiLuJe
+
+	* [r11205] src/run.ffs:
+	  
+	  Kindle Hacks:
+	  * Rescue Pack:
+	  * Save a fork, and add a note about current dropbear handling...
+
+2014-11-30 15:47  NiLuJe
+
+	* [r11204] src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePacks:
+	  * Oops, can't preserve permissions when copying to vfat
+
+2014-11-30 15:38  NiLuJe
+
+	* [r11203] src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePacks:
+	  * Oops, I'd kind of forgot the backup bit introduced in 1.14.N, thanks
+	  for reminding me, @hfpop ;).
+
+2014-11-24 15:52  NiLuJe
+
+	* [r11153] src/debrick, src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Rescue Packs:
+	  * Minor tweaks & cleanups
+
+2014-11-23 18:22  NiLuJe
+
+	* [r11145] src/debrick, src/debrick.conf, src/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Rescue Pack:
+	  * Play nice with the latest bridge
+
+2014-11-23 18:17  NiLuJe
+
+	* [r11144] build/build-updates.sh[ADD]:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePack:
+	  * Add a build script
+
+2014-11-23 18:11  NiLuJe
+
+	* [r11143] .[ADD], README[ADD], build[ADD], src[ADD], src/debrick[ADD],
+	  src/debrick.conf[ADD], src/dropbear_dss_host_key[ADD],
+	  src/dropbear_rsa_host_key[ADD], src/dropbearmulti[ADD],
+	  src/run.ffs[ADD]:
+	  
+	  Kindle Touch Hacks:
+	  * Initial import of the RP & CRP (current upstream versions)
+

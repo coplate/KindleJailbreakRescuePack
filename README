@@ -1,0 +1,126 @@
+=========================================================
+= Rescue Pack for FW 5.x (KT/PW/PW2/KT2/KV/PW3/KOA/KT3) =
+=========================================================
+
+VERSION: 2013-12-20
+*Id*
+
+Q: What is this, and why would I need it?
+A: This is a package which will (hopefully) allow you to recover your Kindle,
+   in cases where it refuses to boot normally. It's really meant mostly for
+   developers, and it may help to get the Kindle into a working state again,
+   if it happens to be bricked. If you're not a developer, or if you never
+   heard about SSH before: I still recommend to install it. If your Kindle
+   happens to suicide (and history shows that Kindles regularly simply break
+   all by themselves), you still have a chance to restore it, instead of
+   having to send it straight back to Amazon. HOWEVER: If you are unsure of
+   what you are doing, by all means, don't attempt to do things you don't
+   understand, but ask in the Kindle developer's forum:
+   http://www.mobileread.com/forums/forumdisplay.php?f=150
+
+   Of course: this "rescue pack" is not a magic bullet in any way. It merely
+   gives you SSH access to the Kindle. It's up to you to figure out the
+   correct commands to actually debrick the device.
+
+Q: What does it do?
+A: Two things. First, it installs the dropbear server on the diags partition,
+   so that you can connect to it when in diags mode. Second, it installs a
+   tiny script which, when the Kindle boots to (or tries to boot to) main,
+   checks for the file /mnt/us/ENABLE_DIAGS. If that file is present, it is
+   deleted, and the device reboots into diags mode. Note that this behavior
+   slightly differs from what previous Kindle models did, in that a) the
+   ENABLE_DIAGS file is deleted right after it was found, and b) you will
+   need to explicitly set the boot mode back to "main" if you want to reboot
+   to main.
+   NOTE: You can also choose to extend this behavior by installing the
+   Coward's Rescue Pack (http://www.mobileread.com/forums/showthread.php?t=232507),
+   which will trigger a reboot into diags if the device is connected to a power source
+   during boot.
+
+Q: How do I install it?
+A: Copy the update_rescue_pack_*.bin file to your Kindle (put it in the root
+   USB folder, not into any subfolder), then disconnect the Kindle from the
+   computer and select Menu > Settings, Menu > Update Your Kindle.
+   Alternatively, you can use the MobileRead Package Installer (MRPI for short):
+   http://www.mobileread.com/forums/showthread.php?t=251143
+   NOTE: if you're currently running FW >= 5.6.x, you will *have to* use MRPI.
+
+Q: How do I use it?
+A: There should be at least a short period of time during which even a
+   bricked Kindle will show up as a USB drive, when it is booting while
+   connected to a computer. During that time, place a file called
+   "ENABLE_DIAGS" directly on the Kindle drive (Note: the filename *IS* case
+   sensitive... and: *NO FILE EXTENSION*, i.e., it's really "ENABLE_DIAGS",
+   not "ENABLE_DIAGS.txt" or anything like that. If you're using Windows,
+   double-check your settings, or better yet, just switch to a decent
+   Operating System :-p )
+
+   Once the Kindle has rebooted into diags mode, issue the following onscreen
+   commands, in sequence, to enable SSH access: N-U-Z-X.
+   The Kindle should show up as a networked device soon thereafter (if it
+   doesn't, disconnect and reconnect it). The *Kindle* will use the
+   following network configuration: IP 192.168.15.244, netmask 255.255.255.0.
+   Unless you are trying to do anything exotic, set the *Computer*'s end of
+   the connection to IP 192.168.15.201 (netmask 255.255.255.0).
+
+   You should now be able to connect to the Kindle using SSH with the
+   following settings:IP=192.168.15.244, USER=root, PASSWORD=mario
+
+   Once you're done with your modifications and fixes, and want to reboot the
+   Kindle into "normal" (main) mode, issue the following commands through SSH:
+
+   idme -d --bootmode main
+   reboot
+
+
+Important note:
+---------------
+
+While this package should enable folks to remedy some "stupid mistakes" that
+they made, and should normally allow for a debricking in most "normal"
+situations, it will not help in situations where the PW is *severely* bricked
+(like, the main partition can't be read, the entire storage has been deleted,
+etc.). To support such situations, we need to find out how the device can be put
+into "firmware flash" / "usb downloader" mode. Until then, a sane main
+partition, and working upstart scripts, are still required in order to even
+boot into diags mode. (This does not hold for the Kindle Touch. The Kindle
+Touch can almost always be debricked using USB downloader mode).
+
+
+PS: If you're tired of the constant SSH warnings, put something like the
+following in your .ssh/config file: (the "kindle" is an alias that I defined
+in my /etc/hosts file, so YMMV)
+
+Host 192.168.15.244
+	StrictHostKeyChecking no
+	UserKnownHostsFile /dev/null
+
+Host kindle
+	StrictHostKeyChecking no
+	UserKnownHostsFile /dev/null
+
+
+=============================================================================
+If you have any questions, feel free to ask:
+http://www.mobileread.com/forums/showthread.php?t=195670
+
+
+-- ixtab
+
+
+=============================================================================
+
+
+CREDITS
+
+dropbearmulti: Dropbear, distributed under a MIT-style license.
+(http://matt.ucc.asn.au/dropbear/dropbear.html)
+
+    |-    libtommath & libtomcrypt, (C) Tom St Denis, <tomstdenis@gmail.com>,
+    |   released in the Public Domain,
+    |   (https://github.com/libtom/libtommath & https://github.com/libtom/libtomcrypt)
+    |
+    `->   zlib, Copyright (C) 1995-2013 Jean-loup Gailly and Mark Adler,
+        Licensed under the zlib license (http://zlib.net/zlib_license.html)
+        (http://zlib.net/)
+
